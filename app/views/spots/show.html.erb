@@ -1,8 +1,6 @@
 <% content_for :class, "scaffold" %>
 
 
-<% content_for :class, "scaffold" %>
-
 
    <div class="section section-gray">
         <div class="container">
@@ -13,8 +11,7 @@
                             <div class="image">
                                 <%= image_tag("gsdk_pro/thumb.jpg", alt: "...") %>
                             </div>
-                            <%= link_to fa_icon_tag("pencil") + ' Edit', edit_spot_path(@spot), class: 'btn btn-primary' %>
-    <%= link_to 'Back', spots_path, class: 'btn' %>
+                            
                             
                             <div class="content">
                                 <div class="author">
@@ -46,4 +43,9 @@
             </div>
         </div>
     </div> <!-- end section meet our team -->
-
+    <div class="container">
+     <% if user_signed_in? %>
+        <%= link_to fa_icon_tag("pencil") + ' Edit', edit_spot_path(@spot), class: 'btn btn-primary' %>
+        <%= link_to 'DELETE ', @spot, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger" %>
+     <% end %>
+    </div>    
