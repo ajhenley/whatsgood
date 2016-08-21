@@ -1,0 +1,56 @@
+<% content_for :class, "scaffold" %>
+
+<div class="page-header">
+  <div class="container">
+    <h2>Showing event</h2>
+  </div>
+</div>
+
+<div class="container">
+  <div class="form-horizontal">
+    <div class="form-group">
+      <label class="col-md-2 control-label">What</label>
+      <div class="col-md-10">
+        <div class="form-control">
+          <span>
+            <%= @event.what %>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-2 control-label">Description</label>
+      <div class="col-md-10">
+        <div class="form-control">
+          <span>
+            <%= @event.description %>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-2 control-label">When</label>
+      <div class="col-md-10">
+        <div class="form-control">
+          <span>
+            <%= @event.when %>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-2 control-label">Spots</label>
+      <div class="col-md-10">
+        <div class="form-control">
+          <span>
+            <%= @event.spots %>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-actions col-md-offset-2 col-md-10">
+    <%= link_to fa_icon_tag("pencil") + ' Edit', edit_event_path(@event), class: 'btn btn-primary' %>
+    <%= link_to 'Back', events_path, class: 'btn' %>
+  </div>
+</div>
