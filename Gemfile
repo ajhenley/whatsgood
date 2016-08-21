@@ -31,6 +31,8 @@ gem 'gsdk_pro', '1.4.0.7', :path => 'lib/gsdk_pro'
 # gem 'capistrano-rails', group: :development
 gem 'devise', '~> 4.1', '>= 4.1.1'
 
+gem 'carrierwave'
+
 gem 'ratyrate'
 
 group :development, :test do

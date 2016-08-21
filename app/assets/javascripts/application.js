@@ -15,5 +15,5 @@
 //= require gsdk_pro
 //= require jquery.raty
 //= require ratyrate
-//= require turbolinks
+
 //= require_tree .

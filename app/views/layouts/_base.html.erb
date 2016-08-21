@@ -9,18 +9,13 @@
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Grand+Hotel|Open+Sans:400,300' %>
 
     <%= javascript_include_tag "//google-code-prettify.googlecode.com/svn/loader/run_prettify.js" %>
     <%= javascript_include_tag "//maps.googleapis.com/maps/api/js?sensor=false" %>
-    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
 
-    <!-- If you are using TypeKit.com uncomment this code otherwise you can delete it -->
-    <!--
-    <script src="https://use.typekit.net/[your kit code here].js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-    -->
 
     <%= favicon_link_tag "gsdk_pro/apple-icon.png", rel: "apple-touch-icon", type: "image/png", sizes: "76x76" %>
     <%= favicon_link_tag "gsdk_pro/favicon.png", rel: "icon", type: "image/png", sizes: "96x96" %>
