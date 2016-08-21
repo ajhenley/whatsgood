@@ -10,6 +10,7 @@ class SpotsController < ApplicationController
   # GET /spots/1
   # GET /spots/1.json
   def show
+    @events = Event.where(spot_id: id)
   end
 
   # GET /spots/new
@@ -25,7 +26,7 @@ class SpotsController < ApplicationController
   # POST /spots.json
   def create
     @spot = Spot.new(spot_params)
-
+    @spot.user = current_user
     respond_to do |format|
       if @spot.save
         format.html { redirect_to @spot, notice: 'Spot was successfully created.' }
