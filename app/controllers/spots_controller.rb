@@ -1,5 +1,7 @@
 class SpotsController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :index]
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
+
 
   # GET /spots
   # GET /spots.json
@@ -7,10 +9,19 @@ class SpotsController < ApplicationController
     @spots = Spot.all
   end
 
+  # GET /spots
+  # GET /spots.json
+  def myindex
+    @spots = Spot.where(user_id:current_user.id)
+    if !@spots.any?
+      redirect_to :action => "index"
+    end
+  end
+
   # GET /spots/1
   # GET /spots/1.json
   def show
-    @events = Event.where(spot_id: id)
+    @events = Event.where(spot_id: @spot.id)
   end
 
   # GET /spots/new

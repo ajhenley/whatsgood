@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'myspots' => 'spots#myindex'
   resources :spots
   resources :events
   get 'spots/index' => 'spots#index'
