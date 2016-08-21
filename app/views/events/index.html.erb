@@ -1,0 +1,53 @@
+<% content_for :class, "scaffold" %>
+
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <h2>Listing events</h2>
+      </div>
+      <div class="col-xs-6">
+        <%= link_to new_event_path, class: 'btn btn-primary btn-large pull-right' do %>
+        <%= fa_icon_tag "plus" %> Add Event
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>What</th>
+          <th>Description</th>
+          <th>When</th>
+          <th>Spots</th>
+          <th class="td-actions text-right">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @events.each do |event| %>
+        <tr>
+          <td><%= event.what %></td>
+          <td><%= event.description %></td>
+          <td><%= event.when %></td>
+          <td><%= event.spots %></td>
+          <td class="actions text-right">
+            <%= link_to fa_icon_tag("eye"), event, rel: 'tooltip', title: 'Show' %>
+            <%= link_to fa_icon_tag("pencil"), edit_event_path(event), rel: 'tooltip', title: 'Edit' %>
+            <%= link_to fa_icon_tag("trash-o"), event, rel: 'tooltip', title: 'Delete',
+            data: { confirm: 'Are you sure?' }, method: :delete %>
+          </td>
+        </tr>
+        <% end %>
+        <% if @events.length == 0 %>
+        <tr><td colspan=42 class='text-center'>No events.</td></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  
+  </div>

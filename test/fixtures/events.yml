@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  what: MyString
+  description: MyText
+  when: 2016-08-21
+  spots: one
+
+two:
+  what: MyString
+  description: MyText
+  when: 2016-08-21
+  spots: two
