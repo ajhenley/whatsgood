@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
     
   has_many :spots, dependent: :destroy
+    ratyrate_rater
 end

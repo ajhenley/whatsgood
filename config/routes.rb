@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
   resources :spots
   resources :events
   get 'spots/index' => 'spots#index'

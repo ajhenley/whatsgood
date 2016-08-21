@@ -25,25 +25,19 @@
                                 <div class="filter"></div>
                             </div>
                             <div class="content">
+                                 
                                 <p class="category">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-
-                                    <a href="#" class="pull-right btn-hover">
-                                        <i class="fa fa-heart-o"></i> Like
-                                    </a>
+                                    <%= rating_for spot, "spot" %>
                                 </p>
                                 <a href="#"><br>
                                     <h4 class="title"><%=link_to spot.name, spot %></h4>
                                 </a>
                             </div>
-                            <div class="footer">
+                            <!-----div class="footer">
                                 <div class="author">
                                     <a href="#">
-                                         <%= image_tag("gsdk_pro/thumb.jpg", alt: "...", class:"avatar") %>
-                                         <span> Alex Paduraru</span>
+                                         < image_tag("gsdk_pro/thumb.jpg", alt: "...", class:"avatar") %>
+                                        <span> <  spot.user %> </span>
                                     </a>
                                 </div>
                                 <div class="stats pull-right">
@@ -56,7 +50,7 @@
                                         <i class="fa fa-heart"></i> 745
                                     </a>
                                 </div>
-                            </div>
+                            </div--->
                         </div> <!-- end card -->
                        <% end %>
                     </div>
