@@ -1,0 +1,37 @@
+<%- if defined?(SimpleForm) -%>
+<%%= simple_form_for(@<%= singular_table_name %>, <%= GsdkPro.key_value :wrapper, ":horizontal_form" %>, <%= GsdkPro.key_value :html, '{ ' + GsdkPro.key_value(:class, "'form-horizontal'") + ' }' %>) do |f| %>
+  <%%= f.error_notification %>
+
+  <div class="form-inputs">
+  <%- attributes.each do |attribute| -%>
+    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
+  <%- end -%>
+  </div>
+
+  <div class="form-actions col-md-offset-2 col-md-10">
+    <%%= f.button :submit %>
+    <%%= f.button :cancel, <%= GsdkPro.key_value :to, "#{index_helper}_path" %> %>
+  </div>
+<%% end %>
+<%- else -%>
+<%%= form_for(@<%= singular_table_name %>, <%= GsdkPro.key_value :html, '{ ' + GsdkPro.key_value(:class,"'form-horizontal'") + ' }' %>) do |f| %>
+  <%%= f.error_notification %>
+
+  <div class="form-inputs">
+  <%- attributes.each do |attribute| -%>
+    <%%= f.form_group :<%= attribute.name %> do |f| %>
+      <%%= f.label :<%= attribute.name %>, <%= GsdkPro.key_value :class, "'col-md-2 control-label'" %> %>
+      <div class='col-md-10'>
+        <%%= f.<%= attribute.field_type %> :<%= attribute.name %>, <%= GsdkPro.key_value :class, "'form-control'" %> %>
+        <%%= f.error_messages %>
+      </div>
+    <%% end %>
+  <%- end -%>
+  </div>
+
+  <div class="form-actions col-md-offset-2 col-md-10">
+    <%%= f.submit <%= GsdkPro.key_value :class, "'btn btn-primary'" %> %>
+    <%%= link_to "Cancel", <%= index_helper %>_path, <%= GsdkPro.key_value :class, "'btn'" %> %>
+  </div>
+<%% end %>
+<%- end -%>

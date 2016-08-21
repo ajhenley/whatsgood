@@ -1,0 +1,30 @@
+<div class="page-header">
+  <div class="container">
+    <h2>Resend confirmation instructions</h2>
+  </div>
+</div>
+
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "form-horizontal" }) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.form_group :email do |f| %>
+        <%= f.label :email, class: 'col-md-2 control-label' %>
+        <div class='col-md-10'>
+          <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'form-control' %>
+          <%= f.error_messages %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="actions col-md-offset-2 col-md-10">
+      <%= f.submit "Resend confirmation instructions", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+  <div class="col-md-offset-2 col-md-10">
+    <br/>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

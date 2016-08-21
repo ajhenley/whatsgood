@@ -1,0 +1,57 @@
+<%% content_for :class, "scaffold" %>
+
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <h2>Listing <%= plural_table_name %></h2>
+      </div>
+      <div class="col-xs-6">
+        <%%= link_to new_<%= singular_table_name %>_path, <%= GsdkPro.key_value :class, "'btn btn-primary btn-large pull-right'" %> do %>
+        <%%= fa_icon_tag "plus" %> Add <%= human_name %>
+        <%% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <%- attributes.each do |attribute| -%>
+          <th><%= attribute.human_name %></th>
+          <%- end -%>
+          <th class="td-actions text-right">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+        <tr>
+          <%- attributes.each do |attribute| -%>
+          <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+          <%- end -%>
+          <td class="actions text-right">
+            <%%= link_to fa_icon_tag("eye"), <%= singular_table_name %>, <%= GsdkPro.key_value :rel, "'tooltip'" %>, <%= GsdkPro.key_value :title, "'Show'" %> %>
+            <%%= link_to fa_icon_tag("pencil"), edit_<%= singular_table_name %>_path(<%= singular_table_name %>), <%= GsdkPro.key_value :rel, "'tooltip'" %>, <%= GsdkPro.key_value :title, "'Edit'" %> %>
+            <%%= link_to fa_icon_tag("trash-o"), <%= singular_table_name %>, <%= GsdkPro.key_value :rel, "'tooltip'" %>, <%= GsdkPro.key_value :title, "'Delete'" %>,
+            <%= Gem::Version.new(Rails.version) >= Gem::Version.new("3.2.6") ? GsdkPro.key_value(:data, '{ ' + GsdkPro.key_value(:confirm, "'Are you sure?'") + ' }') : GsdkPro.key_value(:confirm, "'Are you sure?'") %>, <%= GsdkPro.key_value :method, ":delete" %> %>
+          </td>
+        </tr>
+        <%% end %>
+        <%% if @<%= plural_table_name %>.length == 0 %>
+        <tr><td colspan=42 class='text-center'>No <%= plural_table_name %>.</td></tr>
+        <%% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <% if defined?(WillPaginate) -%>
+  <%%= will_paginate @<%= plural_table_name %>, class: "pagination pagination-no-border" if @<%= plural_table_name %>.respond_to?(:total_pages) %>
+  <% end -%>
+
+  <% if defined?(Kaminari) -%>
+  <%%= paginate @<%= plural_table_name %> if @<%= plural_table_name %>.respond_to?(:current_page) %>
+  <% end -%>
+</div>

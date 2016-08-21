@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require gsdk_pro
 //= require turbolinks
 //= require_tree .

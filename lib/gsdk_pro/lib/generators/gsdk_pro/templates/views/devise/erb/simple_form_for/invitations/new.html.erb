@@ -1,0 +1,22 @@
+<div class="page-header">
+  <div class="container">
+    <h2>Request an Invite</h2>
+  </div>
+</div>
+
+<div class="container">
+  <%= simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { class: "form-horizontal", novalidate: true }) do |f| %>
+    <%= f.input :invitation_token, as: :hidden %>
+
+    <div class="form-inputs">
+      <% resource.class.invite_key_fields.each do |field| -%>
+        <%= f.input field, autofocus: true %>
+      <% end -%>
+    </div>
+
+    <div class="actions col-md-offset-2 col-md-10">
+      <%= f.button :submit, "Request an Invite", class: "btn btn-primary" %>
+      <%= f.submit "Request an Invite", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

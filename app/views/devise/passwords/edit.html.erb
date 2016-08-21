@@ -1,0 +1,45 @@
+<div class="page-header">
+  <div class="container">
+    <h2>Change your password</h2>
+  </div>
+</div>
+
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "form-horizontal" }) do |f| %>
+    <%= f.error_notification %>
+    <%= f.hidden_field :reset_password_token %>
+    <%= f.error_messages_for :reset_password_token %>
+
+    <div class="form-inputs">
+      <%= f.form_group :password do |f| %>
+        <%= f.label :password, "New password", class: 'col-md-2 control-label' %>
+        <div class='col-md-10'>
+          <%= f.password_field :password, autofocus: true, autocomplete: "off", class: 'form-control' %>
+          <%= f.error_messages %>
+          <% if @minimum_password_length %>
+            <div class="help-inline">
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%= f.form_group :password_confirmation do |f| %>
+        <%= f.label :password_confirmation, "Confirm your new password", class: 'col-md-2 control-label' %>
+        <div class='col-md-10'>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+          <%= f.error_messages %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="actions col-md-offset-2 col-md-10">
+      <%= f.submit "Change my password", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+  
+  <div class="col-md-offset-2 col-md-10">
+    <br/>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

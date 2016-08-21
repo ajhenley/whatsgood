@@ -1,0 +1,81 @@
+<%= form_for(@spot, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.form_group :name do |f| %>
+      <%= f.label :name, class: 'col-md-2 control-label' %>
+      <div class='col-md-10'>
+        <%= f.text_field :name, class: 'form-control' %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+    <%= f.form_group :hours do |f| %>
+      <%= f.label :hours, class: 'col-md-2 control-label' %>
+      <div class='col-md-10'>
+        <%= f.text_field :hours, class: 'form-control' %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+    <%= f.form_group :phone do |f| %>
+      <%= f.label :phone, class: 'col-md-2 control-label' %>
+      <div class='col-md-10'>
+        <%= f.text_field :phone, class: 'form-control' %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+    <%= f.form_group :address do |f| %>
+      <%= f.label :address, class: 'col-md-2 control-label' %>
+      <div class='col-md-10'>
+        <%= f.text_field :address, class: 'form-control' %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+    <%= f.form_group :description do |f| %>
+      <%= f.label :description, class: 'col-md-2 control-label' %>
+      <div class='col-md-10'>
+        <%= f.text_field :description, class: 'form-control' %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+    <%= f.form_group :social_twitter do |f| %>
+      <%= f.label :social_twitter, class: 'col-md-2 control-label' %>
+      <div class='col-md-10'>
+        <%= f.text_field :social_twitter, class: 'form-control' %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+    <%= f.form_group :social_fb do |f| %>
+      <%= f.label :social_fb, class: 'col-md-2 control-label' %>
+      <div class='col-md-10'>
+        <%= f.text_field :social_fb, class: 'form-control' %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+    <%= f.form_group :social_isntagram do |f| %>
+      <%= f.label :social_isntagram, class: 'col-md-2 control-label' %>
+      <div class='col-md-10'>
+        <%= f.text_field :social_isntagram, class: 'form-control' %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+    <%= f.form_group :social_pinsterest do |f| %>
+      <%= f.label :social_pinsterest, class: 'col-md-2 control-label' %>
+      <div class='col-md-10'>
+        <%= f.text_field :social_pinsterest, class: 'form-control' %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+    <%= f.form_group :tags do |f| %>
+      <%= f.label :tags, class: 'col-md-2 control-label' %>
+      <div class='col-md-10'>
+        <%= f.text_field :tags, class: 'form-control' %>
+        <%= f.error_messages %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-actions col-md-offset-2 col-md-10">
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= link_to "Cancel", spots_path, class: 'btn' %>
+  </div>
+<% end %>
