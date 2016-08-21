@@ -1,5 +1,46 @@
 <% content_for :class, "scaffold" %>
 
+
+   <div class="section section-gray">
+        <div class="container">
+            <div class="team-presentation">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card card-user">
+                            <div class="image">
+                                <%= image_tag("gsdk_pro/thumb.jpg", alt: "...") %>
+                            </div>
+                            <div class="content">
+                                <div class="author">
+                                    <a href="#">
+                                    <%= image_tag("gsdk_pro/thumb.jpg", alt: "...", class:"avatar") %>
+                                    <h4 class="title"><%= @spot.name %><br />
+                                        <small><%= @spot.description %></small>
+                                    </h4>
+                                    </a>
+                                </div>
+                                <p class="description text-center">
+                                    <i class="fa fa-map-marker fa-fw text-muted"></i> <%= @spot.address %> <br/>
+                                    <i class="fa fa-building-o fa-fw text-muted"></i> <%= @spot.address %> <br/>
+                                    <i class="fa fa-phone fa-fw text-muted"></i> <%= @spot.phone %> <br/>
+                                    <i class="fa fa-clock-o fa-fw text-muted"></i> <%= @spot.hours %>
+                                </p>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                                <button href="<%= @spot.social_twitter %>" class="btn btn-social btn-facebook btn-simple"><i class="fa fa-facebook-square"></i></button>
+                                <button href="#" class="btn btn-social btn-twitter btn-simple"><i class="fa fa-twitter"></i></button>
+                                <button href="#" class="btn btn-social btn-google btn-simple"><i class="fa fa-google-plus-square"></i></button>
+
+                            </div>
+                        </div> <!-- end card-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end section meet our team -->
+
+
 <div class="page-header">
   <div class="container">
     <h2>Showing spot</h2>
@@ -114,3 +155,4 @@
     <%= link_to 'Back', spots_path, class: 'btn' %>
   </div>
 </div>
+

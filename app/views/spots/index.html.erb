@@ -1,4 +1,4 @@
-
+<% content_for :class, "scaffold" %>
 
 <div class="wrapper">
     <div class="parallax filter-black">
@@ -17,49 +17,49 @@
                <h2 class="section-title">Latest Tips</h2>
                <div class="row">
                    <% @spots.each do |spot| %>
+                   <%= link_to(spot) do %>
                    <div class="col-md-6">
-                    <div class="card card-background">
-                        <div class="image">
-                            <%= image_tag("gsdk_pro/thumb.jpg", alt: "...") %>
-                            <div class="filter"></div>
-                        </div>
-                        <div class="content">
-                            <p class="category">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
+                        <div class="card card-background">
+                            <div class="image">
+                                <%= image_tag("gsdk_pro/thumb.jpg", alt: "...") %>
+                                <div class="filter"></div>
+                            </div>
+                            <div class="content">
+                                <p class="category">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
 
-                                <a href="#" class="pull-right btn-hover">
-                                    <i class="fa fa-heart-o"></i> Like
-                                </a>
-                            </p>
-                            <a href="#"><br>
-                                <h4 class="title"><%= spot.name %></h4>
-                                <p><%= spot.description %></p>
-                            </a>
-                        </div>
-                        <div class="footer">
-                            <div class="author">
-                                <a href="#">
-                                     <%= image_tag("gsdk_pro/thumb.jpg", alt: "...", class:"avatar") %>
-                                     <span> Alex Paduraru</span>
+                                    <a href="#" class="pull-right btn-hover">
+                                        <i class="fa fa-heart-o"></i> Like
+                                    </a>
+                                </p>
+                                <a href="#"><br>
+                                    <h4 class="title"><%=link_to spot.name, spot %></h4>
                                 </a>
                             </div>
-                            <div class="stats pull-right">
-                                 <a href="#">
-                                    <i class="fa fa-comments"></i> 143
-                                 </a>
+                            <div class="footer">
+                                <div class="author">
+                                    <a href="#">
+                                         <%= image_tag("gsdk_pro/thumb.jpg", alt: "...", class:"avatar") %>
+                                         <span> Alex Paduraru</span>
+                                    </a>
+                                </div>
+                                <div class="stats pull-right">
+                                     <a href="#">
+                                        <i class="fa fa-comments"></i> 143
+                                     </a>
+                                </div>
+                                <div class="stats pull-right">
+                                    <a href="#">
+                                        <i class="fa fa-heart"></i> 745
+                                    </a>
+                                </div>
                             </div>
-                            <div class="stats pull-right">
-                                <a href="#">
-                                    <i class="fa fa-heart"></i> 745
-                                </a>
-                            </div>
-                        </div>
-                    </div> <!-- end card -->
-                </div>
-
+                        </div> <!-- end card -->
+                       <% end %>
+                    </div>
                    <% end %>
                </div>
            </div>

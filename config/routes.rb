@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'spot/index' => 'spot#index'
   resources :spots
     
-    root 'spots#index'
+    root 'pages#home'
   get 'pages/home' => 'pages#home'
   get 'pages/home'
 
