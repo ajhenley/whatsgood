@@ -1,5 +1,4 @@
 class SpotsController < ApplicationController
-  layout '_base'
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
 
   # GET /spots
@@ -70,6 +69,6 @@ class SpotsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spot_params
-      params.require(:spot).permit(:name, :hours, :phone, :address, :description, :social_twitter, :social_fb, :social_isntagram, :social_pinsterest, :tags)
+      params.require(:spot).permit(:name, :hours, :phone, :address, :description, :social_twitter, :social_fb, :social_instagram, :social_pinsterest, :tags)
     end
 end

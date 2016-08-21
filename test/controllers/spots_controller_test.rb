@@ -17,7 +17,7 @@ class SpotsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create spot" do
     assert_difference('Spot.count') do
-      post spots_url, params: { spot: { address: @spot.address, description: @spot.description, hours: @spot.hours, name: @spot.name, phone: @spot.phone, social_fb: @spot.social_fb, social_isntagram: @spot.social_isntagram, social_pinsterest: @spot.social_pinsterest, social_twitter: @spot.social_twitter, tags: @spot.tags } }
+      post spots_url, params: { spot: { address: @spot.address, description: @spot.description, hours: @spot.hours, name: @spot.name, phone: @spot.phone, social_fb: @spot.social_fb, social_instagram: @spot.social_instagram, social_pinsterest: @spot.social_pinsterest, social_twitter: @spot.social_twitter, tags: @spot.tags } }
     end
 
     assert_redirected_to spot_url(Spot.last)
@@ -34,7 +34,7 @@ class SpotsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update spot" do
-    patch spot_url(@spot), params: { spot: { address: @spot.address, description: @spot.description, hours: @spot.hours, name: @spot.name, phone: @spot.phone, social_fb: @spot.social_fb, social_isntagram: @spot.social_isntagram, social_pinsterest: @spot.social_pinsterest, social_twitter: @spot.social_twitter, tags: @spot.tags } }
+    patch spot_url(@spot), params: { spot: { address: @spot.address, description: @spot.description, hours: @spot.hours, name: @spot.name, phone: @spot.phone, social_fb: @spot.social_fb, social_instagram: @spot.social_instagram, social_pinsterest: @spot.social_pinsterest, social_twitter: @spot.social_twitter, tags: @spot.tags } }
     assert_redirected_to spot_url(@spot)
   end
 

@@ -8,7 +8,7 @@ one:
   description: MyString
   social_twitter: MyString
   social_fb: MyString
-  social_isntagram: MyString
+  social_instagram: MyString
   social_pinsterest: MyString
   tags: MyString
 
@@ -20,6 +20,6 @@ two:
   description: MyString
   social_twitter: MyString
   social_fb: MyString
-  social_isntagram: MyString
+  social_instagram: MyString
   social_pinsterest: MyString
   tags: MyString

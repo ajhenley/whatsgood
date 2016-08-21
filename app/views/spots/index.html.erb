@@ -14,7 +14,7 @@
 
      <div class="section ">
            <div class="container">
-               <h2 class="section-title">Latest Tips</h2>
+               <h2 class="section-title">Listing Spots</h2>
                <div class="row">
                    <% @spots.each do |spot| %>
                    <%= link_to(spot) do %>
@@ -67,3 +67,72 @@
  
     
 
+
+
+
+
+
+
+<div class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <h2>Listing spots</h2>
+      </div>
+      <div class="col-xs-6">
+        <%= link_to new_spot_path, class: 'btn btn-primary btn-large pull-right' do %>
+        <%= fa_icon_tag "plus" %> Add Spot
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Hours</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>Description</th>
+          <th>Social twitter</th>
+          <th>Social fb</th>
+          <th>Social instagram</th>
+          <th>Social pinsterest</th>
+          <th>Tags</th>
+          <th class="td-actions text-right">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @spots.each do |spot| %>
+        <tr>
+          <td><%= spot.name %></td>
+          <td><%= spot.hours %></td>
+          <td><%= spot.phone %></td>
+          <td><%= spot.address %></td>
+          <td><%= spot.description %></td>
+          <td><%= spot.social_twitter %></td>
+          <td><%= spot.social_fb %></td>
+          <td><%= spot.social_instagram %></td>
+          <td><%= spot.social_pinsterest %></td>
+          <td><%= spot.tags %></td>
+          <td class="actions text-right">
+            <%= link_to fa_icon_tag("eye"), spot, rel: 'tooltip', title: 'Show' %>
+            <%= link_to fa_icon_tag("pencil"), edit_spot_path(spot), rel: 'tooltip', title: 'Edit' %>
+            <%= link_to fa_icon_tag("trash-o"), spot, rel: 'tooltip', title: 'Delete',
+            data: { confirm: 'Are you sure?' }, method: :delete %>
+          </td>
+        </tr>
+        <% end %>
+        <% if @spots.length == 0 %>
+        <tr><td colspan=42 class='text-center'>No spots.</td></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  
+  </div>

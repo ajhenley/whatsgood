@@ -8,7 +8,7 @@ class CreateSpots < ActiveRecord::Migration[5.0]
       t.string :description
       t.string :social_twitter
       t.string :social_fb
-      t.string :social_isntagram
+      t.string :social_instagram
       t.string :social_pinsterest
       t.string :tags
 
