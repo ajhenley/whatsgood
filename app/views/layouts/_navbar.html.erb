@@ -37,6 +37,10 @@
                           <li><%= link_to "Login", new_user_session_path %></li>
                           <li><%= link_to "Sign Up", new_user_registration_path %></li>
                         <% else %>
+<<<<<<< HEAD
+=======
+                          <li><%= link_to "My Profile", edit_user_registration_path %></li>
+>>>>>>> b91074638b6a57ecbfbe76db0e7ce1b52a76be0f
                           <li><%= link_to "Edit Profile", edit_user_registration_path  %></li>
                           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
                         <% end %>
