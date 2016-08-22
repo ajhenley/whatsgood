@@ -1,9 +1,15 @@
 <% content_for :class, "scaffold" %>
 
 
+<<<<<<< HEAD
 
 
 
+=======
+<br />
+<br />
+<br />
+>>>>>>> 7ab597497b6bac425b45563a809685dd6524da1c
 
 
 <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
@@ -15,7 +21,7 @@
                 <h1><%= @spot.name %></h1>
 
                 <p class="description ">
-                    <span><%= @spot.description %></span> <br>
+                    <span><%= @spot.description %></span> <br><br>
                     <i class="fa fa-map-marker fa-fw text-muted"></i> <%= @spot.address %> <br/>
                     <i class="fa fa-phone fa-fw text-muted"></i> <%= @spot.phone %> <br/>
                     <i class="fa fa-clock-o fa-fw text-muted"></i> <%= @spot.hours %>
@@ -28,24 +34,24 @@
 	<div class="row nav">    
         <div class="col-md-4"></div>
         <div class="col-md-12 col-xs-12" style="margin: 0px;padding: 0px;">
-            <a href="<%= @spot.social_fb %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-facebook fa-lg"></i></div></a>
-            <a href="<%= @spot.social_twitter %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-twitter fa-lg"></i></div></a>
-            <a href="<%= @spot.social_pinsterest %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-pinterest fa-lg"></i></div></a>
-            <a href="<%= @spot.social_instagram %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-instagram fa-lg"></i></div></a>
+            <a href="https://www.facebook.com/<%= @spot.social_fb %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-facebook fa-lg"></i></div></a>
+            <a href="https://twitter.com/<%= @spot.social_twitter %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-twitter fa-lg"></i></div></a>
+            <a href="https://www.pinterest.com/<%= @spot.social_pinsterest %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-pinterest fa-lg"></i></div></a>
+            <a href="https://www.instagram.com/<%= @spot.social_instagram %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-instagram fa-lg"></i></div></a>
         </div>
     </div>
 </div>
 
 
-    <div class="container">
-        <% if (user_signed_in?) && (current_user.id == @spot.user_id) %>
-        <%= link_to fa_icon_tag("pencil") + ' Edit', edit_spot_path(@spot), class: 'btn btn-primary' %>
-        <%= link_to 'DELETE ', @spot, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger" %>
-     <% end %>
-    </div>    
+<div class="container">
+  <% if user_signed_in? %>
+      <%= link_to fa_icon_tag("pencil") + ' Edit', edit_spot_path(@spot), class: 'btn btn-primary' %>
+      <%= link_to fa_icon_tag("remove") + 'Delete ', @spot, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger" %>
+  <% end %>
+</div>
 
 
-
+<% content_for :style do %>
 
 <style>
 
@@ -173,3 +179,4 @@ background-color: #F1F1F1;
 
 
 </style>
+<% end %>
