@@ -2,18 +2,13 @@
 
 
 
-    <div class="container">
-     <% if user_signed_in? %>
-        <%= link_to fa_icon_tag("pencil") + ' Edit', edit_spot_path(@spot), class: 'btn btn-primary' %>
-        <%= link_to 'DELETE ', @spot, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger" %>
-     <% end %>
-    </div>    
+
 
 
 
 <div class="container" style="margin-top: 20px; margin-bottom: 20px;">
 	<div class="row panel">
-		<div class="col-md-4 bg_blur ">
+		<div class="col-md-4 bg_blur" >
 		</div>
         <div class="col-md-8  col-xs-12">
            <div class="header">
@@ -41,6 +36,13 @@
     </div>
 </div>
 
+
+    <div class="container">
+        <% if (user_signed_in?) && (current_user.id == @spot.user_id) %>
+        <%= link_to fa_icon_tag("pencil") + ' Edit', edit_spot_path(@spot), class: 'btn btn-primary' %>
+        <%= link_to 'DELETE ', @spot, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger" %>
+     <% end %>
+    </div>    
 
 
 

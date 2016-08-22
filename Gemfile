@@ -33,6 +33,8 @@ gem 'devise', '~> 4.1', '>= 4.1.1'
 
 gem 'carrierwave'
 
+gem 'cloudinary'
+
 gem 'ratyrate'
 
 group :development, :test do
