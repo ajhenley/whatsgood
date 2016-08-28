@@ -15,5 +15,4 @@
 //= require gsdk_pro
 //= require jquery.raty
 //= require ratyrate
-
 //= require_tree .

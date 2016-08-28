@@ -21,7 +21,7 @@
                    <div class="col-md-6">
                         <div class="card card-background">
                             <div class="image">
-                                <%= image_tag("gsdk_pro/thumb.jpg", alt: "...") %>
+                                <%= link_to cl_image_tag(spot.image.url(:display), width:"100%"), spot %>
                                 <div class="filter"></div>
                             </div>
                             <div class="content">
