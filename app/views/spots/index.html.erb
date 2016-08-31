@@ -29,7 +29,11 @@
                                     <%= rating_for spot, "spot" %>
                                 </p>
                                 <br>
-                                <h2 class="title"><b><%=spot.name %></b></h2>
+                              <% if spot.name.length < 25 %>
+                                    <h2 class="title"><b><%=spot.name %></b></h2>
+                                  <% else %>
+                                    <h3 class="title"><b><%=spot.name[0..50] %></b></h3>
+                                  <% end %>
                                 <br>
                                 <h5 class="title"><%=spot.address %> / <%=spot.phone %></h5>
 
