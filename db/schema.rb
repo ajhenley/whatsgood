@@ -21,6 +21,41 @@ ActiveRecord::Schema.define(version: 20160830143411) do
     t.datetime "updated_at"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.string   "name"
+    t.string   "hours"
+    t.string   "phone"
+    t.string   "address"
+    t.string   "description"
+    t.string   "social_twitter"
+    t.string   "social_fb"
+    t.string   "social_instagram"
+    t.string   "social_pinsterest"
+    t.string   "tags"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "user_id"
+    t.string   "image"
+    t.index ["user_id"], name: "index_spots_on_user_id"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string   "what"
     t.text     "description"
@@ -62,41 +97,6 @@ ActiveRecord::Schema.define(version: 20160830143411) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
-  end
-
-  create_table "spots", force: :cascade do |t|
-    t.string   "name"
-    t.string   "hours"
-    t.string   "phone"
-    t.string   "address"
-    t.string   "description"
-    t.string   "social_twitter"
-    t.string   "social_fb"
-    t.string   "social_instagram"
-    t.string   "social_pinsterest"
-    t.string   "tags"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.integer  "user_id"
-    t.string   "image"
-    t.index ["user_id"], name: "index_spots_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
