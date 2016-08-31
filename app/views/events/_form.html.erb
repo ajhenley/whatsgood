@@ -9,6 +9,13 @@
         <%= f.error_messages %>
       </div>
     <% end %>
+    <%= f.form_group :image do |f| %>
+        <%= f.label :image, class: 'col-md-2 control-label' %>
+        <div class='col-md-10'>
+          <%= f.file_field :image, class: 'form-control' %>
+          <%= f.error_messages %>
+        </div>
+    <% end %>
     <%= f.form_group :description do |f| %>
       <%= f.label :description, class: 'col-md-2 control-label' %>
       <div class='col-md-10'>
@@ -19,17 +26,29 @@
     <%= f.form_group :when do |f| %>
       <%= f.label :when, class: 'col-md-2 control-label' %>
       <div class='col-md-10'>
-        <%= f.date_select :when, class: 'form-control' %>
+        <%= f.datetime_select :when, class: 'form-control' %>
         <%= f.error_messages %>
       </div>
     <% end %>
-    <%= f.form_group :spots do |f| %>
-      <%= f.label :spots, class: 'col-md-2 control-label' %>
-      <div class='col-md-10'>
-        <%= f.text_field :spots, class: 'form-control' %>
-        <%= f.error_messages %>
+    <%= f.hidden_field :spots_id, value: params[:spots_id] %>
+    <div class="form-group">
+      <%= f.label :category, class: 'col-md-2 control-label' %>
+      <div class="col-md-10">
+        <select name="event[category]" id="event_category" class="selectpicker" data-style="btn-info btn-fill btn-block">
+          <option disabled selected> Choose category</option>
+          <option value="music">Music </option>
+          <option value="dance">Dancing </option>
+          <option value="food">Food </option>
+          <option value="comedy">Comedy </option>
+          <option value="stage">Theater </option>
+          <option value="film">Film </option>
+          <option value="speech">Speech </option>
+          <option value="meeting">Meeting </option>
+          <option value="art">Art </option>
+          <option value="other">Other </option>
+        </select>
       </div>
-    <% end %>
+    </div>
   </div>
 
   <div class="form-actions col-md-offset-2 col-md-10">

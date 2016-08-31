@@ -36,14 +36,50 @@
     </div>
 </div>
 
-
+<% if user_signed_in? %>
 <div class="container">
-  <% if user_signed_in? %>
       <%= link_to fa_icon_tag("pencil") + ' Edit', edit_spot_path(@spot), class: 'btn btn-primary' %>
       <%= link_to fa_icon_tag("remove") + 'Delete ', @spot, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger" %>
-  <% end %>
+  <%= link_to "Add Event Plain", {:controller => "events", :action => "new", :spots_id => @spot.id }%>
+      <%= link_to new_event_path(@spot), class: 'btn btn-primary btn-large pull-right' do %>
+          <%= fa_icon_tag "plus" %> Add Event
+      <% end %>
 </div>
+<% end %>
 
+<div class="section section-white">
+  <div class="container">
+    <div class="row">
+      <% @events.each do |event| %>
+          <a href="http://www.google.com">
+            <div class="col-md-4">
+              <div class="card card-background">
+                <div class="image">
+                  <%= cl_image_tag(event.image.url(:display), width:"100%") %>
+                  <div class="filter"></div>
+                </div>
+                <div class="content">
+                  <p class="category">Dancing...</p>
+                  <a href="#">
+                    <h2 class="title"><%= event.what %></h2>
+                    <p><%= event.description %></p>
+                  </a>
+                </div>
+                <div class="footer">
+                  <div class="author">
+
+                  </div>
+                  <div class="stats pull-right">
+                    <i class="fa fa-clock-o"></i> <%= event.when.strftime("%m/%d/%Y %I:%M%p") %>
+                  </div>
+                </div>
+              </div> <!-- end card -->
+            </div>
+          </a>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <% content_for :style do %>
 

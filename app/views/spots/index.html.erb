@@ -14,14 +14,13 @@
 
      <div class="section ">
            <div class="container">
-               <h2 class="section-title">Listing Spots</h2>
                <div class="row">
                    <% @spots.each do |spot| %>
                    <%= link_to(spot) do %>
                    <div class="col-md-6">
                         <div class="card card-background">
                             <div class="image">
-                                <%= link_to cl_image_tag(spot.image.url(:display), width:"100%"), spot %>
+                                <%= cl_image_tag(spot.image.url(:display), width:"100%") %>
                                 <div class="filter"></div>
                             </div>
                             <div class="content">
@@ -29,9 +28,11 @@
                                 <p class="category">
                                     <%= rating_for spot, "spot" %>
                                 </p>
-                                <a href="#"><br>
-                                    <h4 class="title"><%=link_to spot.name, spot %></h4>
-                                </a>
+                                <br>
+                                <h2 class="title"><b><%=spot.name %></b></h2>
+                                <br>
+                                <h5 class="title"><%=spot.address %> / <%=spot.phone %></h5>
+
                             </div>
                             <!-----div class="footer">
                                 <div class="author">

@@ -22,7 +22,7 @@ class SpotsController < ApplicationController
   # GET /spots/1
   # GET /spots/1.json
   def show
-    @events = Event.where(spot_id: @spot.id)
+    @events = Event.where(spots_id: @spot.id)
   end
 
   # GET /spots/new
