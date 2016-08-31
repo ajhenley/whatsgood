@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'spot/index' => 'spot#index'
     
-    root 'pages#home'
+    root 'spots#index'
   get 'pages/home' => 'pages#home'
   get 'pages/home'
 
