@@ -122,7 +122,7 @@
     <orderEntry type="jdk" jdkName="rbenv: 2.3.1" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library name="gsdk_pro (v1.4.0.7, /Users/ajhenley/Documents/byCoding/whasgood/lib/gsdk_pro) [path][gem]">
+      <library name="gsdk_pro (v1.4.0.7, /Users/ajhenley/Documents/byCoding/whatsgood_base2/lib/gsdk_pro) [path][gem]">
         <CLASSES>
           <root url="file://$MODULE_DIR$/lib/gsdk_pro/app" />
           <root url="file://$MODULE_DIR$/lib/gsdk_pro/bin" />

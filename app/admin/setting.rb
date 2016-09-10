@@ -1,9 +1,9 @@
-ActiveAdmin.register Event do
+ActiveAdmin.register Settings do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  permit_params :what, :description, :when, :spots_id, :image, :category, :spots_id
+  permit_params :var, :value
 #
 # or
 #

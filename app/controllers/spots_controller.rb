@@ -7,7 +7,12 @@ class SpotsController < ApplicationController
   # GET /spots
   # GET /spots.json
   def index
-    @spots = Spot.all
+    if params[:searchTerm]
+      st = "%" + params[:searchTerm] + "%"
+      @spots = Spot.find_by_sql(["select * from spots where name like ? or description like ? or tags like ?", st, st, st])
+    else
+      @spots = Spot.all
+    end
   end
 
   # GET /spots
