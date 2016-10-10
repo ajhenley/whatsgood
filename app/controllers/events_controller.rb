@@ -5,17 +5,37 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @spot = Spot.find(@event.spots_id)
   end
 
   # GET /events/new
   def new
     @event = Event.new
-    @spot = Spot.find(params[:spots_id])
+
+    if params[:original]
+      orig = Event.find(params[:original])
+      @event.what = orig.what
+      @event.description = orig.description
+      @event.when = orig.when
+      @event.image = orig.image
+      @event.category = orig.category
+      @event.link = orig.link
+      @event.whenend = orig.whenend
+      @event.happensat = orig.happensat
+      @spot = Spot.find(orig.spots_id)
+      @title = "Copied Event"
+      @button = "Save Copied Event"
+    else
+      @title = "New Event"
+      @button = "Create Event"
+      @spot = Spot.find(params[:spots_id])
+    end
   end
 
   # GET /events/1/edit
@@ -27,6 +47,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @spot = Spot.find(@event.spots_id)
+    @event.happensat = @spot.name
     respond_to do |format|
       if @event.save
         format.html { redirect_to @spot, notice: 'Event was successfully created.' }
@@ -70,6 +91,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:what, :description, :when, :spots_id, :image, :category, :spots_id)
+      params.require(:event).permit(:what, :description, :when, :whenend, :spots_id, :image, :category, :spots_id, :link)
     end
 end

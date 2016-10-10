@@ -30,7 +30,7 @@
         <div class="col-md-12 col-xs-12" style="margin: 0px;padding: 0px;">
             <a href="https://www.facebook.com/<%= @spot.social_fb %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-facebook fa-lg"></i></div></a>
             <a href="https://twitter.com/<%= @spot.social_twitter %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-twitter fa-lg"></i></div></a>
-            <a href="https://www.pinterest.com/<%= @spot.social_pinsterest %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-pinterest fa-lg"></i></div></a>
+            <a href="https://www.yelp.com/<%= @spot.social_pinsterest %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-yelp fa-lg"></i></div></a>
             <a href="https://www.instagram.com/<%= @spot.social_instagram %>" target="_blank"><div class="col-md-3 col-xs-3 well"><i class="fa fa-instagram fa-lg"></i></div></a>
         </div>
     </div>
@@ -40,10 +40,8 @@
 <div class="container">
       <%= link_to fa_icon_tag("pencil") + ' Edit', edit_spot_path(@spot), class: 'btn btn-primary' %>
       <%= link_to fa_icon_tag("remove") + 'Delete ', @spot, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger" %>
-  <%= link_to "Add Event Plain", {:controller => "events", :action => "new", :spots_id => @spot.id }%>
-      <%= link_to new_event_path(@spot), class: 'btn btn-primary btn-large pull-right' do %>
-          <%= fa_icon_tag "plus" %> Add Event
-      <% end %>
+  <%= link_to  fa_icon_tag("plus") + "Add Event Plain", {:controller => "events", :action => "new", :spots_id => @spot.id }, class: 'btn btn-primary pull-right'%>
+
 </div>
 <% end %>
 
@@ -51,19 +49,19 @@
   <div class="container">
     <div class="row">
       <% @events.each do |event| %>
-          <a href="http://www.google.com">
-            <div class="col-md-4">
+        <%= link_to(event) do %>
+          <div class="col-md-4">
               <div class="card card-background">
                 <div class="image">
                   <%= cl_image_tag(event.image.url(:display), width:"100%") %>
                   <div class="filter"></div>
                 </div>
                 <div class="content">
-                  <p class="category">Dancing...</p>
-                  <a href="#">
+                  <p class="category"><%= event.category.titlecase %>...</p>
+                  <%= link_to(event) do %>
                     <h2 class="title"><%= event.what %></h2>
                     <p><%= event.description %></p>
-                  </a>
+                  <% end %>
                 </div>
                 <div class="footer">
                   <div class="author">
@@ -75,7 +73,7 @@
                 </div>
               </div> <!-- end card -->
             </div>
-          </a>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -85,10 +83,7 @@
 
 <style>
 
-    a:visited{
-        color: #fff;
-        color:white;
-    }
+
 
 .well {
     margin-top:-20px;

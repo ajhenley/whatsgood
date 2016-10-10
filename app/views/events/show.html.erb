@@ -1,107 +1,44 @@
 <% content_for :class, "scaffold" %>
 
-<div class="page-header">
-  <div class="container">
-    <h2>Showing event</h2>
-  </div>
-</div>
 
-<div class="container">
-  <div class="form-horizontal">
-    <div class="form-group">
-      <label class="col-md-2 control-label">What</label>
-      <div class="col-md-10">
-        <div class="form-control">
-          <span>
-            <%= @event.what %>
-          </span>
-        </div>
-      </div>
+<br />
+<br />
+<br />
+
+
+<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+  <div class="row panel">
+    <div class="col-md-4 bg_blur" >
     </div>
-    <div class="form-group">
-      <label class="col-md-2 control-label">Description</label>
-      <div class="col-md-10">
-        <div class="form-control">
-          <span>
-            <%= @event.description %>
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-2 control-label">When</label>
-      <div class="col-md-10">
-        <div class="form-control">
-          <span>
-            <%= @event.when %>
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-2 control-label">Spots</label>
-      <div class="col-md-10">
-        <div class="form-control">
-          <span>
-            <%= @event.spots_id %>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="form-actions col-md-offset-2 col-md-10">
-    <%= link_to fa_icon_tag("pencil") + ' Edit', edit_event_path(@event), class: 'btn btn-primary' %>
-    <%= link_to 'Back', events_path, class: 'btn' %>
-  </div>
-</div>
-<div class="page-header">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-6">
-        <h2>Listing events</h2>
-      </div>
-      <div class="col-xs-6">
-        <%= link_to new_event_path, class: 'btn btn-primary btn-large pull-right' do %>
-            <%= fa_icon_tag "plus" %> Add Event
-        <% end %>
+    <div class="col-md-8  col-xs-12">
+      <div class="header">
+        <h2><%= @event.what %> @ <%= link_to @spot.name, @spot %></h2>
+
+        <p class="description ">
+          <span><%= @event.description %></span> <br>
+          <span><b><%= @event.when.strftime("%a, %b %d, %Y") %></b> / <%= @event.when.strftime("%I:%M %p") %> - <%= @event.whenend.strftime("%I:%M %p") %></span> <br><br>
+          <i class="fa fa-map-marker fa-fw text-muted"></i> <%= @spot.address %> <br/>
+          <i class="fa fa-phone fa-fw text-muted"></i> <%= @spot.phone %> <br/>
+          <i class="fa fa-clock-o fa-fw text-muted"></i> <%= @spot.hours %> <br />
+          <i class="fa fa-info fa-fw text-muted"></i> <a href="<%= @event.link %>">More Info...</a>
+
+        </p>
+
       </div>
     </div>
   </div>
 </div>
+<% if user_signed_in? && isEventOwner(@event) %>
+    <div class="container">
+      <%= link_to fa_icon_tag("clone") + ' Copy', new_event_path(:original => @event.id), class: 'btn btn-primary' %>
 
-<div class="container">
-  <div class="table-responsive">
-    <table class="table">
-      <thead>
-      <tr>
-        <th>What</th>
-        <th>Description</th>
-        <th>When</th>
-        <th>Spots</th>
-        <th class="td-actions text-right">Actions</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @events.each do |event| %>
-          <tr>
-            <td><%= event.what %></td>
-            <td><%= event.description %></td>
-            <td><%= event.when %></td>
-            <td><%= event.spots_id %></td>
-            <td class="actions text-right">
-              <%= link_to fa_icon_tag("eye"), event, rel: 'tooltip', title: 'Show' %>
-              <%= link_to fa_icon_tag("pencil"), edit_event_path(event), rel: 'tooltip', title: 'Edit' %>
-              <%= link_to fa_icon_tag("trash-o"), event, rel: 'tooltip', title: 'Delete',
-                          data: { confirm: 'Are you sure?' }, method: :delete %>
-            </td>
-          </tr>
-      <% end %>
-      <% if @events.length == 0 %>
-          <tr><td colspan=42 class='text-center'>No events.</td></tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div>
-
-
-</div>
+    </div>
+<% end %>
+  <style>
+    .bg_blur
+    {
+      background-image: url(<%= @event.image %>);
+      height: 300px;
+      background-size: cover;
+    }
+  </style>

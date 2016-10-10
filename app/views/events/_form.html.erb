@@ -23,12 +23,26 @@
         <%= f.error_messages %>
       </div>
     <% end %>
+    <%= f.form_group :link do |f| %>
+        <%= f.label :link, class: 'col-md-2 control-label' %>
+        <div class='col-md-10'>
+          <%= f.text_field :link, class: 'form-control' %>
+          <%= f.error_messages %>
+        </div>
+    <% end %>
     <%= f.form_group :when do |f| %>
       <%= f.label :when, class: 'col-md-2 control-label' %>
       <div class='col-md-10'>
         <%= f.datetime_select :when, class: 'form-control' %>
         <%= f.error_messages %>
       </div>
+    <% end %>
+    <%= f.form_group :whenend do |f| %>
+        <%= f.label :whenend, class: 'col-md-2 control-label' %>
+        <div class='col-md-10'>
+          <%= f.datetime_select :whenend, class: 'form-control' %>
+          <%= f.error_messages %>
+        </div>
     <% end %>
     <%= f.hidden_field :spots_id, value: params[:spots_id] %>
     <div class="form-group">
@@ -52,7 +66,7 @@
   </div>
 
   <div class="form-actions col-md-offset-2 col-md-10">
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit @button, class: 'btn btn-primary' %>
     <%= link_to "Cancel", events_path, class: 'btn' %>
   </div>
 <% end %>

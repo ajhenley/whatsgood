@@ -22,6 +22,33 @@
      <div class="section ">
            <div class="container">
                <div class="row">
+                  <% @events.each do |event| %>
+                    <%= link_to(event) do %>
+                      <div class="col-md-6" >
+                        <div class="card card-background">
+                          <div class="image">
+                            <%= cl_image_tag(event.image.url(:display), width:"100%") %>
+                            <div class="filter"></div>
+                          </div>
+                          <div class="content">
+                            <p class="category">
+                            </p>
+                            <br/>
+                            <% if event.what.length < 25 %>
+                              <h2 class="title"><b><%= event.what %> @ <%= event.happensat %></b></h2>
+                            <% else %>
+                              <h3 class="title"><b><%= event.what %></b></h3>
+                            <% end %>
+                            <br>
+                            <h5 class="title"><%= event.when.strftime("%m/%d/%Y %I:%M%p") %></h5>
+                          </div>
+
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                 </div>
+                 <div class="row">
                    <% @spots.each do |spot| %>
                    <%= link_to(spot) do %>
                    <div class="col-md-6">
@@ -45,24 +72,6 @@
                                 <h5 class="title"><%=spot.address %> / <%=spot.phone %></h5>
 
                             </div>
-                            <!-----div class="footer">
-                                <div class="author">
-                                    <a href="#">
-                                         < image_tag("gsdk_pro/thumb.jpg", alt: "...", class:"avatar") %>
-                                        <span> <  spot.user %> </span>
-                                    </a>
-                                </div>
-                                <div class="stats pull-right">
-                                     <a href="#">
-                                        <i class="fa fa-comments"></i> 143
-                                     </a>
-                                </div>
-                                <div class="stats pull-right">
-                                    <a href="#">
-                                        <i class="fa fa-heart"></i> 745
-                                    </a>
-                                </div>
-                            </div--->
                         </div> <!-- end card -->
                        <% end %>
                     </div>

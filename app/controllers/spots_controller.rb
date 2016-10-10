@@ -10,8 +10,11 @@ class SpotsController < ApplicationController
     if params[:searchTerm]
       st = "%" + params[:searchTerm] + "%"
       @spots = Spot.find_by_sql(["select * from spots where name like ? or description like ? or tags like ?", st, st, st])
+      @events = Event.find_by_sql(["select * from events where what like ? or description like ? or category like ?", st, st ,st])
     else
       @spots = Spot.all
+      @events = Array.new
+
     end
   end
 
@@ -27,7 +30,13 @@ class SpotsController < ApplicationController
   # GET /spots/1
   # GET /spots/1.json
   def show
-    @events = Event.where(spots_id: @spot.id)
+    # @events = Event.where(spots_id: @spot.id)
+    # (datetime_from_form.to_time - n.hours).to_datetime
+    # byebug
+    d = DateTime.now
+    d = d - 7.hours
+    e = d.to_datetime
+    @events = Event.find_by_sql ["select * from events where spots_id = ? and whenend >= ?", @spot.id, e]
   end
 
   # GET /spots/new
