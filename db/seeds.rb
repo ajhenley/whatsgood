@@ -12,3 +12,4 @@ Settings.create!(var:'facebook', value:'whatsgood', thing_type:'string')
 Settings.create!(var:'twitter', value:'whatsgood', thing_type:'string')
 Settings.create!(var:'pinterest', value:'whatsgood', thing_type:'string')
 Settings.create!(var:'instagram', value:'whatsgood', thing_type:'string')
+
