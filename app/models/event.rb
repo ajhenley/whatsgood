@@ -1,4 +1,5 @@
 class Event < ApplicationRecord
+  attr_accessor :repcount, :duplicate
 #  belongs_to :spots
   mount_uploader :image, EventImageUploader
   validate :start_date_before_end_date
