@@ -74,7 +74,6 @@ class SpotsController < ApplicationController
   def show
     # @events = Event.where(spots_id: @spot.id)
     # (datetime_from_form.to_time - n.hours).to_datetime
-    # byebug
     d = DateTime.now
     d = d - 7.hours
     e = d.to_datetime

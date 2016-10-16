@@ -46,7 +46,6 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    byebug
     myev = Hash.new()
     myev["what"] = event_params["what"]
     myev["description"] = event_params["description"]
@@ -63,7 +62,6 @@ class EventsController < ApplicationController
                                    event_params["whenend(3i)"].to_i,
                                    event_params["whenend(4i)"].to_i,
                                    event_params["whenend(5i)"].to_i)
-    byebug
     @spot = Spot.find(event_params["spots_id"].to_i)
     myev["spots_id"] = event_params["spots_id"]
     myev["happensat"] = @spot.name
@@ -74,7 +72,6 @@ class EventsController < ApplicationController
       dupmeth = event_params["duplicate"]
       dupnum = event_params["repcount"].to_i
       (1..dupnum).each do |i|
-        #byebug
         myev1 = myev.clone
         myev = []
         myev = myev1
