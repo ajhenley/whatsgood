@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   get 'spots/index' => 'spots#index'
   devise_for :users
   get 'spot/index' => 'spot#index'
-    
-    root 'spots#index'
+
+  root 'spots#index'
   get 'pages/home' => 'pages#home'
   get 'pages/home'
 

@@ -144,7 +144,6 @@
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v5.0.0.1, rbenv: 2.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionview (v5.0.0.1, rbenv: 2.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activeadmin (v1.0.0.pre4@0a5a15, rbenv: 2.3.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activeadmin_settings_cached (v2.0.1, rbenv: 2.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activejob (v5.0.0.1, rbenv: 2.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v5.0.0.1, rbenv: 2.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v5.0.0.1, rbenv: 2.3.1) [gem]" level="application" />
@@ -204,7 +203,6 @@
     <orderEntry type="library" scope="PROVIDED" name="rails (v5.0.0.1, rbenv: 2.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.0.1, rbenv: 2.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.0.3, rbenv: 2.3.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rails-settings-cached (v0.5.4, rbenv: 2.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails_12factor (v0.0.3, rbenv: 2.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails_serve_static_assets (v0.0.5, rbenv: 2.3.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails_stdout_logging (v0.0.5, rbenv: 2.3.1) [gem]" level="application" />

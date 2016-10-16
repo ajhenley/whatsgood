@@ -8,9 +8,51 @@ class SpotsController < ApplicationController
   # GET /spots.json
   def index
     if params[:searchTerm]
-      st = "%" + params[:searchTerm] + "%"
-      @spots = Spot.find_by_sql(["select * from spots where name like ? or description like ? or tags like ?", st, st, st])
-      @events = Event.find_by_sql(["select * from events where what like ? or description like ? or category like ?", st, st ,st])
+      z = params[:searchTerm]
+      y = z.split(" ")
+
+      if y.length > 4
+        y = y[0, 4]
+      end
+
+      mc = ""
+      wcSpotArray = Array.new
+
+      y.each do |x|
+        mc = buildWhereClause(mc,"name like ? or description like ? or tags like ?")
+      end
+
+      wcSpotArray.push "select * from spots where " + mc
+      y.each do |x|
+        wcSpotArray.push "%" + x + "%"
+        wcSpotArray.push "%" + x + "%"
+        wcSpotArray.push "%" + x + "%"
+      end
+
+      wcEventArray = Array.new
+      mc = ""
+
+      y.each do |x|
+        mc = buildWhereClause(mc,"what like ? or description like ? or category like ?")
+      end
+
+      d = DateTime.now
+      d = d - 7.hours
+      e = d.to_datetime
+
+      mc = mc + " and whenend >= ?"
+
+      wcEventArray.push "select * from events where " + mc
+      y.each do |x|
+        wcEventArray.push "%" + x + "%"
+        wcEventArray.push "%" + x + "%"
+        wcEventArray.push "%" + x + "%"
+      end
+
+      wcEventArray.push e
+
+      @spots = Spot.find_by_sql(wcSpotArray)
+      @events = Event.find_by_sql(wcEventArray)
     else
       @spots = Spot.all
       @events = Array.new
@@ -90,7 +132,16 @@ class SpotsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def buildWhereClause(wc, ac)
+      if wc.length > 0
+        wc = wc + " or " + ac
+      else
+        wc = ac
+      end
+      return wc
+    end
+
+  # Use callbacks to share common setup or constraints between actions.
     def set_spot
       @spot = Spot.find(params[:id])
     end

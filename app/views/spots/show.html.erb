@@ -40,7 +40,7 @@
 <div class="container">
       <%= link_to fa_icon_tag("pencil") + ' Edit', edit_spot_path(@spot), class: 'btn btn-primary' %>
       <%= link_to fa_icon_tag("remove") + 'Delete ', @spot, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger" %>
-  <%= link_to  fa_icon_tag("plus") + "Add Event Plain", {:controller => "events", :action => "new", :spots_id => @spot.id }, class: 'btn btn-primary pull-right'%>
+  <%= link_to  fa_icon_tag("plus") + "Add Event", {:controller => "events", :action => "new", :spots_id => @spot.id }, class: 'btn btn-primary pull-right'%>
 
 </div>
 <% end %>
