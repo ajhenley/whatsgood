@@ -7,8 +7,9 @@ class SpotsController < ApplicationController
   # GET /spots
   # GET /spots.json
   def index
-    if params[:searchTerm]
+    if params[:searchTerm] && params[:searchTerm].length > 0
       z = params[:searchTerm]
+      z = z.downcase
       y = z.split(" ")
 
       if y.length > 4
@@ -19,10 +20,10 @@ class SpotsController < ApplicationController
       wcSpotArray = Array.new
 
       y.each do |x|
-        mc = buildWhereClause(mc,"name like ? or description like ? or tags like ?")
+        mc = buildWhereClause(mc,"lower(name) like ? or lower(description) like ? or lower(tags) like ?")
       end
 
-      wcSpotArray.push "select * from spots where " + mc
+      wcSpotArray.push "select * from spots where " + mc + " order by name ASC"
       y.each do |x|
         wcSpotArray.push "%" + x + "%"
         wcSpotArray.push "%" + x + "%"
@@ -33,14 +34,14 @@ class SpotsController < ApplicationController
       mc = ""
 
       y.each do |x|
-        mc = buildWhereClause(mc,"what like ? or description like ? or category like ?")
+        mc = buildWhereClause(mc,"lower(what) like ? or lower(description) like ? or lower(category) like ?")
       end
 
       d = DateTime.now
       d = d - 7.hours
       e = d.to_datetime
 
-      mc = mc + " and whenend >= ?"
+      mc = mc + " and whenend >= ? order by \"when\" limit 20"
 
       wcEventArray.push "select * from events where " + mc
       y.each do |x|

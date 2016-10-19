@@ -36,7 +36,7 @@
     </div>
 </div>
 
-<% if user_signed_in? %>
+<% if user_signed_in? && isSpotOwner(@spot.id)  %>
 <div class="container">
       <%= link_to fa_icon_tag("pencil") + ' Edit', edit_spot_path(@spot), class: 'btn btn-primary' %>
       <%= link_to fa_icon_tag("remove") + 'Delete ', @spot, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-danger" %>
@@ -87,7 +87,7 @@
 
 .well {
     margin-top:-20px;
-    background-color:#FE8100;
+    background-color:#151515;
     border:1px solid #fff;
     text-align:left;
     cursor:pointer;
@@ -98,8 +98,8 @@
 
 .well:hover {
     margin-top:-20px;
-    background-color:#0077B2;
-    border:2px solid #0077B2;
+    background-color:#5e5e5e;
+    border:2px solid #5e5e5e;
     text-align:left;
     cursor:pointer;
     font-size: 25px;
@@ -192,6 +192,13 @@ background-color: #F1F1F1;
    
 }
 
+a {
+  color: #ffffff;
+}
+
+a:hover {
+  color: #000000;
+}
 
 @media (max-width: 767px) {
     

@@ -14,6 +14,7 @@
                   <%= text_field_tag :searchTerm, params[:searchTerm], placeholder:"Search...", class:"form-control", size:50, id:"input-search" %>
                 </div>
               <% end %>
+              <h5>Now in Arlington</h5>
             </div>
         </div>
     </div>
@@ -21,7 +22,11 @@
 
      <div class="section ">
            <div class="container">
+               <% if @events.any? %>
+                 <h3>Events</h3>
+                 <% end %>
                <div class="row">
+
                   <% @events.each do |event| %>
                     <%= link_to(event) do %>
                       <div class="col-md-6" >
@@ -32,6 +37,7 @@
                           </div>
                           <div class="content">
                             <p class="category">
+                              &nbsp;<br />
                             </p>
                             <br/>
                             <% if event.what.length < 25 %>
@@ -48,6 +54,9 @@
                     <% end %>
                   <% end %>
                  </div>
+             <% if @spots.any? %>
+                 <h3>Spots</h3>
+             <% end %>
                  <div class="row">
                    <% @spots.each do |spot| %>
                    <%= link_to(spot) do %>
@@ -60,7 +69,8 @@
                             <div class="content">
                                  
                                 <p class="category">
-                                    <%= rating_for spot, "spot" %>
+                                  &nbsp;<br />
+                              <!--      < rating_for spot, "spot" >   -->
                                 </p>
                                 <br>
                               <% if spot.name.length < 25 %>
