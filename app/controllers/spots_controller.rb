@@ -79,7 +79,7 @@ class SpotsController < ApplicationController
     d = d - 7.hours
     e = d.to_datetime
     @events = Event.find_by_sql ["select * from events where spots_id = ? and whenend >= ?  order by \"when\" ", @spot.id, e]
-    byebug
+
     z=3
   end
 

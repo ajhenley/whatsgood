@@ -140,28 +140,28 @@ class EventsController < ApplicationController
     end
 
   def findNextWeekday(nowdate)
-    i = 1
+    i = 1.day
     while (nowdate+i).saturday? || (nowdate+i).sunday? do
-      i += 1
+      i += 1.day
     end
     return nowdate + i
   end
 
   def findNextWeekendDay(nowdate)
-    i = 1
+    i = 1.day
     until (nowdate+i).saturday? || (nowdate+i).sunday? do
-      i += 1
+      i += 1.day
     end
     return nowdate + i
   end
 
   def findNextDay(nowdate)
-    i = 1
+    i = 1.day
     return nowdate + i
   end
 
   def findNextWeekSameDay(nowdate)
-    i = 7
+    i = 7.day
     return nowdate + i
   end
 
