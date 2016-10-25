@@ -52,12 +52,12 @@ class EventsController < ApplicationController
     myev["image"] = event_params["image"]
     myev["category"] = event_params["category"]
     myev["link"] = event_params["link"]
-    myev["when"] = DateTime.new(event_params["when(1i)"].to_i,
+    myev["when"] = Time.zone.local(event_params["when(1i)"].to_i,
                                 event_params["when(2i)"].to_i,
                                 event_params["when(3i)"].to_i,
                                 event_params["when(4i)"].to_i,
                                 event_params["when(5i)"].to_i)
-    myev["whenend"] = DateTime.new(event_params["whenend(1i)"].to_i,
+    myev["whenend"] = Time.zone.local(event_params["whenend(1i)"].to_i,
                                    event_params["whenend(2i)"].to_i,
                                    event_params["whenend(3i)"].to_i,
                                    event_params["whenend(4i)"].to_i,

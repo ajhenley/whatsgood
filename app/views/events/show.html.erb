@@ -28,12 +28,7 @@
     </div>
   </div>
 </div>
-<% if user_signed_in? && isEventOwner(@event) %>
-    <div class="container">
-      <%= link_to fa_icon_tag("clone") + ' Copy', new_event_path(:original => @event.id), class: 'btn btn-primary' %>
 
-    </div>
-<% end %>
   <style>
     .bg_blur
     {

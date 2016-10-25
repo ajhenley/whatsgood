@@ -75,10 +75,12 @@ class SpotsController < ApplicationController
   def show
     # @events = Event.where(spots_id: @spot.id)
     # (datetime_from_form.to_time - n.hours).to_datetime
-    d = DateTime.now
+    d = DateTime.now.in_time_zone
     d = d - 7.hours
     e = d.to_datetime
-    @events = Event.find_by_sql ["select * from events where spots_id = ? and whenend >= ?", @spot.id, e]
+    @events = Event.find_by_sql ["select * from events where spots_id = ? and whenend >= ?  order by \"when\" ", @spot.id, e]
+    byebug
+    z=3
   end
 
   # GET /spots/new
