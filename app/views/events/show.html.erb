@@ -28,7 +28,12 @@
     </div>
   </div>
 </div>
+<% if user_signed_in? && isEventOwner(@event) %>
+    <div class="container">
+      <%= link_to fa_icon_tag("pencil") + ' Edit', edit_event_path, class: 'btn btn-primary' %>
 
+    </div>
+<% end %>
   <style>
     .bg_blur
     {

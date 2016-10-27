@@ -11,7 +11,9 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @spot = Spot.find(@event.spots_id)
+
+    sid = @event.spots_id
+    @spot = Spot.find(sid)
   end
 
   # GET /events/new
@@ -35,12 +37,17 @@ class EventsController < ApplicationController
     else
       @title = "New Event"
       @button = "Create Event"
-      @spot = Spot.find(params[:spots_id])
+      @spotid = params[:spots_id]
     end
   end
 
   # GET /events/1/edit
   def edit
+
+    eventid = params[:id]
+    @event = Event.find(eventid)
+    @spotid = @event.spots_id
+    s = 5
   end
 
   # POST /events
@@ -112,6 +119,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
+
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
