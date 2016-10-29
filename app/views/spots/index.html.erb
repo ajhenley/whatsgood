@@ -40,10 +40,10 @@
                               &nbsp;<br />
                             </p>
                             <br/>
-                            <% if event.what.length < 25 %>
+                            <% if event.what.length + event.happensat.length < 25 %>
                               <h2 class="title"><b><%= event.what %> @ <%= event.happensat %></b></h2>
                             <% else %>
-                              <h3 class="title"><b><%= event.what %></b></h3>
+                              <h3 class="title"><b><%= event.what %> @ <%= event.happensat %></b></h3>
                             <% end %>
                             <br>
                             <h5 class="title"><%= event.when.strftime("%m/%d/%Y %I:%M%p") %></h5>
