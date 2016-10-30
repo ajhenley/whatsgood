@@ -6,15 +6,15 @@
             <%= image_tag("main.jpg", alt: "...") %>
         </div>
         <div class="small-info">
-          <h1>Brace yourself!</h1>
-          <h3>You will have the time of your life!</h3>
+          <h1>Find whatsgood!</h1>
+          <h3>Beta version now available for Arlington, VA</h3>
             <div class="container">
               <%= form_tag(spots_path, :method => "get", id: "search-form", class: "search") do %>
                 <div class="form-group">
                   <%= text_field_tag :searchTerm, params[:searchTerm], placeholder:"Search...", class:"form-control", size:50, id:"input-search" %>
                 </div>
               <% end %>
-              <h5>Now in Arlington</h5>
+              <h5>Search for happy hours, events, or your favorite places.</h5>
             </div>
         </div>
     </div>
